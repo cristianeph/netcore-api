@@ -5,7 +5,7 @@
 	stages {
 		stage('pull') {
 			steps {
-				git(url: 'https://github.com/cristianeph/netcore-api-test.git', credentialsId: 'github')
+				git(url: 'https://github.com/cristianeph/netcore-api.git', credentialsId: 'github')
 			}
 		}
 		stage('build') {
