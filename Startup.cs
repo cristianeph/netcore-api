@@ -53,6 +53,10 @@ namespace RetoBackend
                 };
             });
             services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
         }
 
         private void AddSwagger(IServiceCollection services)
@@ -84,6 +88,7 @@ namespace RetoBackend
             }
 
             app.UseRouting();
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseSwagger();
             app.UseSwaggerUI(c => {
