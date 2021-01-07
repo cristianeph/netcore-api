@@ -46,7 +46,7 @@ namespace RetoBackendApp.Controllers
         public async Task<IActionResult> Post(Client model)
         {
             var operation = await firebaseClient.Child(collectionName).PostAsync(model.ToString());
-            return Ok(operation.Key);
+            return Ok(model);
         }
     }
 }
